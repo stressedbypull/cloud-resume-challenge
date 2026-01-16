@@ -1,0 +1,18 @@
+.PHONY: init plan apply destroy clean terra-up
+
+init:
+	terraform init
+
+plan:
+	terraform plan
+
+apply:
+	terraform apply -auto-approve
+
+terra-up: init plan apply
+
+destroy:
+	terraform destroy -auto-approve
+
+clean:
+	rm -rf .terraform *.tfstate *.tfstate.backup
